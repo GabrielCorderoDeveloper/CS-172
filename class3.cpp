@@ -11,7 +11,7 @@ int main()
     // cout << "The value of E is: " << e << endl;
 
         int a = 5, b = 10; 
-        int results = a++ + b++ - a++;
+        int results = a++ + ++b - ++a;
         cout << ++results << endl;
 
 
