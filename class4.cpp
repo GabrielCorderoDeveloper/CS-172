@@ -6,10 +6,10 @@ using namespace std;
 // {
 //     int a = 9, b = 4, c = 2, results; 
 //     results = pow(a,c) + (log10(100) + 8) * b;
-
 //     cout << "results " << results;
 //     return 0;
 // }
+
 int main()
 {
     double angle = M_PI/2, results; 
