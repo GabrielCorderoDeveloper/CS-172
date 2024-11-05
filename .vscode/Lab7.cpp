@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    // Write C++ code here
+    // Question 1 -------------------------------------------------
     cout << "Try programiz.pro";
 
     return 0;
