@@ -1,11 +1,13 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main()
-{
-        int a = 5, b = 10; 
-        int results = a++ + ++b - ++a;
-        cout << ++results << endl;
+int main() {
+    int num = 1; 
+
+    do {
+        cout << num << endl; 
+        num++;               
+    } while (num <= 5);       
 
     return 0;
 }
