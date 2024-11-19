@@ -4,7 +4,25 @@
 using namespace std;
 
 int main() {
-    //~QUESTION     9    ---------------------------->
+    //~QUESTION     10    ---------------------------->
+    double sum = 0, number = 1, count = 0;                     
+
+    cout << "Type as many integers as you like. (type 0 to stop)" << endl;
+
+    do {
+        cin >> number; 
+        sum += number;
+        if (number != 0) {
+            count++;
+        }
+
+    } while (number != 0); 
+    cout << "The average is: " << sum/count << endl;
+
+    return 0;
+
+    /*
+        //~QUESTION     9    ---------------------------->
     srand(static_cast<unsigned int>(time(0))); 
     int randomNumber = rand() % 50 + 1;      
     int guess;                              
@@ -25,7 +43,6 @@ int main() {
 
     return 0;
 
-    /*
     //~QUESTION     8    ---------------------------->
     int n; 
     int factorial = 1; 
