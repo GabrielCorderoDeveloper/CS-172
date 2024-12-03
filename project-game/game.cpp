@@ -27,8 +27,9 @@ void Revent(int &chance, int &HP){
         cout<<"You find and obstacle🪨, you are able to get trough it but you hurt yourself slightly. -5HP" << endl;
     } 
     cout <<"\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
-    cout<<"(press insert . and ENTER to continue)"<<endl;
+    cout<<"(press insert 1 and ENTER to continue)"<<endl;
     cin >> r;
+    r = 0;
 }
 
 //2! ALL events handler
@@ -40,8 +41,9 @@ void handleEvent(int &HP, int &steps){
         if (fiftyfifty==0){
             Revent(chance, HP);
         } else{
-            cout<<"Nothing Happened (press ENTER to continue)"<<endl;
+            cout<<"Nothing Happened (press insert 1 and ENTER to continue)"<<endl;
             cin >> blank;
+            blank = 0;
         } 
     } else {
         if (steps==6){
