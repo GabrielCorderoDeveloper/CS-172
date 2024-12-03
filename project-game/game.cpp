@@ -13,7 +13,7 @@ class Player {
 
 //~Random event function
 void Revent(int &chance, int &HP){
-    srand(time(0));
+    int r;
     int revent=(rand()%10+1);
 
     if (revent<=2){
@@ -27,14 +27,13 @@ void Revent(int &chance, int &HP){
         cout<<"You find and obstacle🪨, you are able to get trough it but you hurt yourself slightly. -5HP" << endl;
     } 
     cout <<"\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
-    cout<<"(press ENTER to continue)"<<endl;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout<<"(press insert . and ENTER to continue)"<<endl;
+    cin >> r;
 }
 
 //2! ALL events handler
 void handleEvent(int &HP, int &steps){
     int chance, choice, blank;
-    srand(time(0));
     int fiftyfifty=rand()%2;
 
     if (steps % 3 != 0){
@@ -53,7 +52,6 @@ void handleEvent(int &HP, int &steps){
         cin>>choice;
         if (choice==1){
             cout<<"You scream loudly at the boar"<<endl;
-            srand(time(0));
         int fiftyfifty=rand()%2;
         if (fiftyfifty==0){
             steps+=+1;
