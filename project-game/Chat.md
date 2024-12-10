@@ -1,3 +1,7 @@
-By the way, i have made some changes to the code
-1-optimization
-2-made a function to handle all the events
+TO DO
+• Fix double step skip bug
+• Implement endings
+
+
+TO CHECK THAT IS 100% FIXED
+• Fix NOT being random events BUG

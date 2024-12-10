@@ -1,13 +1,8 @@
-#include<iostream>
-using namespace std;
+if (steps ==3 && isThree == 0) {
 
-class Adventure{
-    public:
-    int Step3(){
-        int choice;
-        int steps=3;
         cout<<"You enter the forest. How do you wish to proceed?";
         cout<<"1) Move cautiously"<<endl<<"2)Rush Foward"<<endl<<"3)Climb a tree"<<endl;
+        isThree = 1;
     while (steps==3){
     cin>>choice;
     if (choice==1){
@@ -26,14 +21,5 @@ class Adventure{
             }
     }
     return steps;
- }
-} ;
 
-
-int main()
-{
-   Adventure progress;
-    progress.Step3();
-    
-    return 0;
 }
