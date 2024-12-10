@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-// Player class
+//*Player class
 class Player
 {
 public:
@@ -38,14 +38,13 @@ void Revent(int &chance, int &HP)
     cin >> r;
 }
 
-// Handle events
+//~Handle events function
 void handleEvent(int &HP, int &steps, bool eventCompleted[])
 {
     int choice;
 
     if (eventCompleted[steps])
     {
-        // If the event for this step is already completed, skip it.
         cout << "Nothing happened. (Press 1 and ENTER to continue.)" << endl;
         int blank;
         cin >> blank;
@@ -77,7 +76,7 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
         {
             cout << "You think about it a bit longer.\n";
         }
-        eventCompleted[steps] = true; // Mark the event as completed
+        eventCompleted[steps] = true; //Marking the events as completed
         return;
     }
 
@@ -116,11 +115,11 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
             HP -= 15;
             cout << "You hesitate and the boar attacks you. You lose 15 HP.\n";
         }
-        eventCompleted[steps] = true; // Mark the event as completed
+        eventCompleted[steps] = true; 
         return;
     }
 
-    // Random events for other steps
+    //~Random events for other steps
     if (rand() % 2 == 0)
     {
         Revent(steps, HP);
@@ -134,7 +133,7 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
     steps++;
 }
 
-// Main function
+//~Main function
 int main()
 {
     Player stats;
@@ -147,7 +146,7 @@ int main()
     cin >> stats.Name;
     cout << "Welcome " << stats.Name << "!\n\n";
 
-    bool eventCompleted[16] = {false}; // Tracks if the event for a step is completed
+    bool eventCompleted[16] = {false}; //Tracks if the event is completed for every single step
 
     while (stats.steps <= 15)
     {
