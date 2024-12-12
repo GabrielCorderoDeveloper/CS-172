@@ -120,7 +120,7 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
     }
 
     if (steps == 9) {
-    cout << "You meet a mysterious hermit who offers help. What will you do?\n";
+    cout << "You meet a mysterious hermit🧙 who offers help. What will you do?\n";
     cout << "1) Listen to him.\n";
     cout << "2) Politely refuse.\n";
     cout << "3) Challenge his knowledge.\n";
@@ -177,22 +177,22 @@ int main()
     bool eventCompleted[16] = {false}; //Tracks if the event is completed for every single step
 
     while (stats.steps <= 15) {
-    // Check if HP has dropped to 0 or below
+    // Bad ending
     if (stats.HP <= 0) {
         cout << "You have lost all your HP. Game Over.\n";
         break;
     }
 
-    // Handle the current step's event
+    // Handle the currwnt step functio
     handleEvent(stats.HP, stats.steps, eventCompleted);
 
-    // Display the current step count
-    cout << "steps: " << stats.steps << endl;
+    // Display the current step 
+    cout << "-------> steps: " << stats.steps << endl;
 }
 
-    // Check if the player has successfully reached the treasure
+    // Victory ending
     if (stats.steps >= 15 && stats.HP > 0) {
-        cout << "Congratulations! You have reached the treasure with " << stats.HP << " HP remaining! Victory is yours!\n";
+        cout << "Congratulations! You have reached the treasure👯🏆👯 with " << stats.HP << " HP remaining! Victory is yours!\n";
     }
     return 0;
 }
