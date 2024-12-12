@@ -97,6 +97,8 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
             {
                 HP -= 15;
                 cout << "It gets more aggressive. You lose 15 HP.\n";
+                cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
+
             }
         }
         else if (choice == 2)
@@ -104,16 +106,22 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
             HP -= 10;
             steps += 2;
             cout << "You decide to fight. You win but lose 10 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
+
         }
         else if (choice == 3)
         {
             HP += 5;
             cout << "You climb a rock and gain 5 HP but make no progress.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
+
         }
         else
         {
             HP -= 15;
             cout << "You hesitate and the boar attacks you. You lose 15 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
+
         }
         eventCompleted[steps] = true; 
         return;
@@ -136,9 +144,12 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
         if (rand() % 2 == 0) {
             HP += 10;
             cout << "Your challenge succeeds! You gain 10 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
         } else {
             HP -= 5;
             cout << "Your challenge fails, and the hermit curses you. You lose 5 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
+
         }
     } else {
         cout << "You hesitate and lose your chance to interact with the hermit.\n";
@@ -157,6 +168,8 @@ if (steps == 12) {
         if (rand() % 2 == 0) {
             HP -= 5;
             cout << "You build a raft, but it leaks halfway across. -5 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
+
         }
         steps += 1;
         cout << "You safely make it to the other side. Progress by 1 step.\n";
@@ -164,6 +177,7 @@ if (steps == 12) {
         if (rand() % 2 == 0) {
             HP -= 10;
             cout << "The current is strong, and you lose your footing. -10 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
         } else {
             cout << "You bravely wade through the river without any harm. 🌟\n";
         }
@@ -193,6 +207,7 @@ if (steps == 14) {
         if (rand() % 10 < 3) { // 30% chance of trap
             HP -= 20;
             cout << "You trigger a hidden trap! Arrows fly at you. -20 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
         } else {
             cout << "You carefully make your way through without any issues. 🌟\n";
         }
@@ -200,9 +215,11 @@ if (steps == 14) {
         if (rand() % 2 == 0) { // 50% chance of success
             HP += 10;
             cout << "You solve the riddle and gain some vitality from the temple's magic. +10 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
         } else {
             HP -= 5;
             cout << "You fail the riddle and a small trap activates. -5 HP.\n";
+            cout << "\033[31m<--------------- HP=" << HP << " --------------->\033[0m" << endl;
         }
     } else if (choice == 3) {
         cout << "You search around and find a safer way in. No harm is done. 🛡️\n";
@@ -262,7 +279,7 @@ int main()
 
     // Victory ending
     if (stats.steps >= 15 && stats.HP > 0) {
-        cout << "Congratulations! You have reached the treasure👯🏆👯 with " << stats.HP << " HP remaining! Victory is yours!\n";
+        cout << "Congratulations! You have reached the treasure💰♀️👯💲💲💲👯♀️💰 with " << stats.HP << " HP remaining! Victory is yours!\n";
     }
     return 0;
 }
