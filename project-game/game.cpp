@@ -145,6 +145,74 @@ void handleEvent(int &HP, int &steps, bool eventCompleted[])
     }
     eventCompleted[steps] = true;
 }
+if (steps == 12) {
+    cout << "🌊 You arrive at a fast-flowing river blocking your path. How will you cross it?\n";
+    cout << "1) Build a raft.\n";
+    cout << "2) Wade across.\n";
+    cout << "3) Take a detour.\n";
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        if (rand() % 2 == 0) {
+            HP -= 5;
+            cout << "You build a raft, but it leaks halfway across. -5 HP.\n";
+        }
+        steps += 1;
+        cout << "You safely make it to the other side. Progress by 1 step.\n";
+    } else if (choice == 2) {
+        if (rand() % 2 == 0) {
+            HP -= 10;
+            cout << "The current is strong, and you lose your footing. -10 HP.\n";
+        } else {
+            cout << "You bravely wade through the river without any harm. 🌟\n";
+        }
+        steps += 2;
+        cout << "You cross the river successfully. Progress by 2 steps.\n";
+    } else if (choice == 3) {
+        steps += 1;
+        cout << "You decide to take a detour around the river. Progress by 1 step.\n";
+        if (rand() % 10 < 3) { // 30% chance for a random event
+            Revent(steps, HP); // Use Revent instead of randomEvent
+        }
+    } else {
+        cout << "You hesitate and waste time. No progress is made.\n";
+    }
+    eventCompleted[steps] = true;
+    return;
+}
+if (steps == 14) {
+    cout << "🏛️ You finally arrive at the ruins of an ancient temple filled with traps. What will you do?\n";
+    cout << "1) Enter cautiously.\n";
+    cout << "2) Solve an ancient riddle.\n";
+    cout << "3) Search for another way in.\n";
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        if (rand() % 10 < 3) { // 30% chance of trap
+            HP -= 20;
+            cout << "You trigger a hidden trap! Arrows fly at you. -20 HP.\n";
+        } else {
+            cout << "You carefully make your way through without any issues. 🌟\n";
+        }
+    } else if (choice == 2) {
+        if (rand() % 2 == 0) { // 50% chance of success
+            HP += 10;
+            cout << "You solve the riddle and gain some vitality from the temple's magic. +10 HP.\n";
+        } else {
+            HP -= 5;
+            cout << "You fail the riddle and a small trap activates. -5 HP.\n";
+        }
+    } else if (choice == 3) {
+        cout << "You search around and find a safer way in. No harm is done. 🛡️\n";
+    } else {
+        cout << "You hesitate and decide to rethink your approach. No progress is made.\n";
+    }
+    steps += 1;
+    eventCompleted[steps] = true;
+    return;
+}
 
 
     //~Random events for other steps
@@ -167,6 +235,7 @@ int main()
     Player stats;
     stats.HP = 100;
     stats.steps = 0;
+    int allSteps = 0;
 
     cout << "I hear you are in search of treasure, traveller. There is a treasure only if you are willing to travel along a dangerous path💀. There is a forest just ahead of here which lies an ancient temple. It is said to contain a treasure of ancient times and of great value🪙.\n\n";
 
@@ -183,8 +252,9 @@ int main()
         break;
     }
 
-    // Handle the currwnt step functio
+    // Handle the currwnt step function
     handleEvent(stats.HP, stats.steps, eventCompleted);
+    allSteps+= 1;
 
     // Display the current step 
     cout << "-------> steps: " << stats.steps << endl;
